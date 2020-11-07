@@ -82,7 +82,7 @@
 }
 .dashboard-box
 {
-    background: #fdf1d3;
+    background: #fd4d52;
     display:block;
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
     border-radius: 1px;
@@ -98,7 +98,7 @@
 }
 .dashboard-text
 {
-    color:grey;
+    color:#fdf1d3;
 }
 .new-orders
 {
