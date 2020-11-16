@@ -1,0 +1,181 @@
+body 
+{
+    background: url(../images/about_uswallpaper.jpg);
+}
+
+.title-about
+{
+    font-size: 7vw;
+    text-align: center;
+    display: block;
+    margin-top: 5vw;
+    color: rgb(238, 238, 238);
+}
+
+.team-body
+{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    color: black;
+    max-width: 100%;
+    background:#ffffff;
+    overflow: hidden;
+    margin: 10vw 12vw 10vw 12vw ;
+    align-items: center;
+    border-radius: 5vw;
+    box-shadow: 0 1vw 2vw 0 rgba(0,0,0,.25);
+    text-align: center;
+    justify-content: center;
+}
+a{ text-decoration: none
+}
+a:link{
+color:black}
+
+.pic
+{
+    grid:1/2;
+    color: black;
+    background: rgb(255, 249, 249);
+    padding: 5vw;
+}
+
+.pic img 
+{
+    height: 30vw;
+    width: 30vw;
+    border-radius: 50%;
+}
+
+.pic:hover
+{
+    background:plum; 
+}
+
+.name
+{
+    font-size: 5vw;
+    font-weight:bold;
+    padding: 3vw;
+    color: black;
+}
+
+.info-member
+{
+    display: block;
+    word-break: break-all;
+    grid:2/3;
+    font-size: 4vw;
+    margin: 2vw 8vw 2vw;
+    text-align: left;
+    border-bottom: 1px solid black;
+
+}
+
+.info-icon
+{
+    font-size: 5vw; 
+}
+
+.logo
+{
+    grid: 3/4;
+    margin: 0vw 5vw 3vw 5vw;
+    font-size: 7vw;
+}
+
+@media screen and (min-width: 1024px)
+{
+    .title-about
+    {
+        margin-top: 20px;
+        font-size: 30px;
+        text-align: center;
+        
+    }
+    
+    .wrapper
+    {
+        display:grid;
+        grid-template-rows: 90% 10%;
+    }
+    .back-home
+    {
+        grid-row: 2/3;
+        font-size: 18pt;  
+        padding-left:100px;
+        
+    }
+    
+    .back-home a 
+    {
+        text-decoration: none;
+        color:rgb(255, 255, 255);
+        border: 2px solid rgb(255, 255, 255);
+        padding:9px;
+        border-radius: 8px;
+    }
+    .back-home a:hover
+    {
+        
+        border: 3px solid rgb(255, 183, 183);
+    }
+
+    .team-box
+    {
+        display: flex;
+        margin: 30px 50px 20px 50px;
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+        grid-row:1/2;
+    }
+
+    .team-body
+    {
+        margin: 4px 50px 30px 50px; 
+        border-radius: 16px;
+    }
+
+    .pic
+    {
+        padding: 10px;
+
+    }
+
+    .pic img 
+    {
+        height: 150px;
+        width: 150px;
+    }
+
+    .name
+    {
+        font-size: 24px;
+        font-weight: bold;
+        padding: 10px;
+color:#BA057E;;
+    }
+
+    .info-member
+    {
+        margin-top: 5px;
+        font-size: 17px;
+        margin-left: 10px;
+        margin-right: 10px; 
+        padding: 10px;
+color: #8C035E;
+    }
+
+    .info-icon
+    {
+        font-size: 16px;
+        padding-left:7%;
+    }
+
+    .logo
+    {
+        font-size: 25px;
+        padding: 1px;
+    }
+}
