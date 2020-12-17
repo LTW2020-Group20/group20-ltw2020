@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ashion">
+    <output-path>$PROJECT_DIR$/out/artifacts/ashion</output-path>
+    <root id="archive" name="ashion.war" />
+  </artifact>
+</component>
