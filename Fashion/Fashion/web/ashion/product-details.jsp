@@ -28,7 +28,7 @@
 </head>
 
 <body style="background: whitesmoke">
-    <!-- Page Preloder -->
+    <!-- Page Preloder// -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
