@@ -1,6 +1,6 @@
-<%@ page import="vn.com.User" %>
-<%@ page import="vn.com.Util" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@ page import="vn.com.controller.Util" %>
+<%@ page import="vn.com.controller.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTL</title>
+  <title>Admin-Receipt</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,17 +28,12 @@
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
+    <!-
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-      </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="ListProduct" class="nav-link">Home</a>
+        <a href="<%=Util.fullPath("Admin")%>" class="nav-link"><i class="fa fa-home"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
+
     </ul>
 
     <!-- SEARCH FORM -->
@@ -79,335 +74,15 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-image: linear-gradient(#15486E, #99264C)">
     <!-- Brand Logo -->
-    <a href="Trangchu.java" class="brand-link">
-      <img src="<%= Util.fullPath("eshopper/Img/logo.png")%>"
-           alt="AdminLTE Logo"
-           class="brand-image img-circle elevation-3"
-           style="opacity: 0.8">
-      <span class="brand-text font-weight-light">AdminLTL</span>
-    </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="<%= Util.fullPath("Admin/dist/img/user2-160x160.jpg")%>" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">LTL</a>
-        </div>
-      </div>
 
       <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-<%--          <li class="nav-item has-treeview">--%>
-<%--            <a href="#" class="nav-link">--%>
-<%--              <i class="nav-icon fas fa-tachometer-alt"></i>--%>
-<%--              <p>--%>
-<%--                Dashboard--%>
-<%--                <i class="right fas fa-angle-left"></i>--%>
-<%--              </p>--%>
-<%--            </a>--%>
-
-<%--          </li>--%>
-
-
-<%--          <li class="nav-item has-treeview">--%>
-<%--            <a href="#" class="nav-link">--%>
-<%--              <i class="nav-icon fas fa-tree"></i>--%>
-<%--              <p>--%>
-<%--                UI Elements--%>
-<%--                <i class="fas fa-angle-left right"></i>--%>
-<%--              </p>--%>
-<%--            </a>--%>
-<%--            <ul class="nav nav-treeview">--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../UI/sliders.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Sliders</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../UI/modals.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Modals & Alerts</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../UI/navbar.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Navbar & Tabs</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../UI/timeline.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Timeline</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../UI/ribbons.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Ribbons</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--            </ul>--%>
-<%--          </li>--%>
-<%--          <li class="nav-item has-treeview">--%>
-<%--            <a href="#" class="nav-link">--%>
-<%--              <i class="nav-icon fas fa-edit"></i>--%>
-<%--              <p>--%>
-<%--                Forms--%>
-<%--                <i class="fas fa-angle-left right"></i>--%>
-<%--              </p>--%>
-<%--            </a>--%>
-<%--            <ul class="nav nav-treeview">--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../forms/general.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>General Elements</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-
-<%--              <li class="nav-item">--%>
-<%--                <a href="../forms/editors.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Editors</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--            </ul>--%>
-<%--          </li>--%>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Tables
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item">
-                <a href="/webbook/ProductType" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý khách hàng</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/webbook/ProductType" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý đơn hàng</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/webbook/TypeSP" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý thể loại sách</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/webbook/Author" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý tác giả</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/webbook/PRODUCTT" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý sách</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/webbook/contact" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý phản hồi KH</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/webbook/Slidershow" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý slide</p>
-                </a>
-              </li>
-
-            </ul>
-          </li>
-
-<%--          <li class="nav-header">EXAMPLES</li>--%>
-<%--          <li class="nav-item">--%>
-<%--            <a href="../calendar.html" class="nav-link">--%>
-<%--              <i class="nav-icon far fa-calendar-alt"></i>--%>
-<%--              <p>--%>
-<%--                Calendar--%>
-<%--                <span class="badge badge-info right">2</span>--%>
-<%--              </p>--%>
-<%--            </a>--%>
-<%--          </li>--%>
-<%--          <li class="nav-item">--%>
-<%--            <a href="../gallery.html" class="nav-link">--%>
-<%--              <i class="nav-icon far fa-image"></i>--%>
-<%--              <p>--%>
-<%--                Gallery--%>
-<%--              </p>--%>
-<%--            </a>--%>
-<%--          </li>--%>
-<%--          <li class="nav-item has-treeview">--%>
-<%--            <a href="#" class="nav-link">--%>
-<%--              <i class="nav-icon far fa-envelope"></i>--%>
-<%--              <p>--%>
-<%--                Mailbox--%>
-<%--                <i class="fas fa-angle-left right"></i>--%>
-<%--              </p>--%>
-<%--            </a>--%>
-<%--            <ul class="nav nav-treeview">--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../mailbox/mailbox.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Inbox</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../mailbox/compose.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Compose</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../mailbox/read-mail.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Read</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--            </ul>--%>
-<%--          </li>--%>
-<%--          <li class="nav-item has-treeview">--%>
-<%--            <a href="#" class="nav-link">--%>
-<%--              <i class="nav-icon fas fa-book"></i>--%>
-<%--              <p>--%>
-<%--                Pages--%>
-<%--                <i class="fas fa-angle-left right"></i>--%>
-<%--              </p>--%>
-<%--            </a>--%>
-<%--            <ul class="nav nav-treeview">--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/invoice.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Invoice</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/profile.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Profile</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/e_commerce.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>E-commerce</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/projects.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Projects</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/project_add.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Project Add</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/project_edit.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Project Edit</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/project_detail.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Project Detail</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/contacts.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Contacts</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--            </ul>--%>
-<%--          </li>--%>
-<%--          <li class="nav-item has-treeview">--%>
-<%--            <a href="#" class="nav-link">--%>
-<%--              <i class="nav-icon far fa-plus-square"></i>--%>
-<%--              <p>--%>
-<%--                Extras--%>
-<%--                <i class="fas fa-angle-left right"></i>--%>
-<%--              </p>--%>
-<%--            </a>--%>
-<%--            <ul class="nav nav-treeview">--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/login.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Login</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/register.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Register</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/forgot-password.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Forgot Password</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/recover-password.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Recover Password</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/lockscreen.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Lockscreen</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/legacy-user-menu.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Legacy User Menu</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--              <li class="nav-item">--%>
-<%--                <a href="../examples/language-menu.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Language Menu</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-
-
-<%--              <li class="nav-item">--%>
-<%--                <a href="../../starter.html" class="nav-link">--%>
-<%--                  <i class="far fa-circle nav-icon"></i>--%>
-<%--                  <p>Starter Page</p>--%>
-<%--                </a>--%>
-<%--              </li>--%>
-<%--            </ul>--%>
-<%--          </li>--%>
-        </ul>
-      </nav>
+      <jsp:include page="center.jsp"></jsp:include>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -420,7 +95,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>List receipt</h1>
+            <h1>List Receipt</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -429,11 +104,11 @@
                 if (u != null) {
               %>
               <li class="breadcrumb-item"><a href="#"><%=u.getUname()%></a></li>
-              <li class="breadcrumb-item" ><a href="/webbook/doLogout">Logout</a></li>
+              <li class="breadcrumb-item active">Logout</li>
               <%
               } else{
               %>
-              <li class="breadcrumb-item active" href="<%=Util.fullPath("eshopper/login.jsp")%>">Login</li>
+              <%--              <li class="breadcrumb-item active" href="<%=Util.fullPath("eshopper/login.jsp")%>">Login</li>--%>
               <%
                 }
               %>
@@ -442,15 +117,14 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-12">
-          <div class="card">
+          <div class="card" style="background-color: #fdf1d3;">
             <div class="card-header">
-<%--              <h3 class="card-title">DataTable with minimal features & hover style</h3>--%>
-
+              <i style="color: #15486E;
+    font-weight: bolder;">All of the customer's receipts</i>
             </div>
 <%--            <a href="<%= Util.fullPath("countau")%>"> <i  style="color: dodgerblue ; font-size: 20px; float: right; margin: 6px"class="fas fa-plus"></i></a>--%>
 
@@ -465,26 +139,24 @@
                   <th>Email</th>
                   <th>Phone</th>
                   <th>Address</th>
-                  <th>Date</th>
                   <th>Total</th>
                   <th>Active</th>
-                  <th>Action</th>
+                  <th>Products</th>
                 </tr>
                 </thead>
                 <tbody>
                 <%
-                  ResultSet rs= (ResultSet) request.getAttribute("rs");
-                  while(rs.next()){
+                  ResultSet donhang= (ResultSet) request.getAttribute("donhang");
+                  while(donhang.next()){
                 %>
                 <tr>
-                  <td><%= rs.getString(1)%></td>
-                  <td><%= rs.getString(2)%></td>
-                  <td><%=rs.getString(3)%></td>
-                  <td><%=rs.getString(4)%></td>
-                  <td><%=rs.getString(5)%></td>
-                  <td><%=rs.getString(6)%></td>
-                  <td><%=rs.getDouble(7)%></td>
-                  <td><% if (rs.getInt(8)==1){ %>
+                  <td><%=donhang.getString(1)%></td>
+                  <td><%= donhang.getString(2)%></td>
+                  <td><%=donhang.getString(6)%></td>
+                  <td><%=donhang.getString(5)%></td>
+                  <td><%=donhang.getString(4)%></td>
+                  <td><%=donhang.getDouble(3)%></td>
+                  <td><% if (donhang.getInt(7)==1){ %>
                     <i style=" color: limegreen; font-size: 20px" class="fa fa-check" > </i>
                     <% }
                     else{ %>
@@ -492,8 +164,7 @@
                     <% } %>
                   </td>
                   <td>
-                    <a onclick="" href="<%=Util.fullPath("DeleteReceipt?id=")+rs.getString(1)%>">  <i  style="color: red ; font-size: 20px; float: right; margin: 6px"class="fas fa-trash"></i></a>
-                    <a href="<%=Util.fullPath("EditReceipt?id="+rs.getString(1))%>"> <i  style="color: dodgerblue ; font-size: 20px; float: right; margin: 6px"class="fas fa-pencil-alt"></i></a>
+                    <a onclick="" href="<%=Util.fullPath("Listpro?id=")+donhang.getString(1)%>">  <i  style="color: dodgerblue ; font-size: 20px; float: right; margin: 6px"class="fas fa-plus"></i></a>
                   </td>
                 </tr>
                 <% } %>
@@ -516,7 +187,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright 2020 <a href="#">AdminLTL</a>.</strong> All rights
+    <strong>Copyright 2020 <a href="#">Admin</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -540,18 +211,6 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<%= Util.fullPath("Admin/dist/js/demo.js")%>"></script>
 <!-- page script -->
-<script>
-    $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-        });
-    });
-</script>
+
 </body>
 </html>

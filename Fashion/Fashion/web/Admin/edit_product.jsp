@@ -28,48 +28,52 @@
   <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
   <title>Title</title>
 </head>
-<body>
+<body style="background-image:radial-gradient(palevioletred,burlywood)">
 <section id="form" style="margin-top: 50px;margin-bottom: 100px"><!--form-->
   <div class="container">
     <div class="row">
-      <div class="col-sm-4" style="margin-left: 35%">
+      <div class="col-sm-4" style="    border: 2px solid bisque;
+    border-radius: 2px;
+    margin-left: 2%;
+    padding-left: 37%;">
         <div class="signup-form" style="margin-bottom: 50px;margin-top: 20px">
           <%
             ResultSet check= (ResultSet) request.getAttribute("check");
             check.next();
           %>
-          <h2 style="font-weight: bold ; font-size: 30px">Edit Product!</h2>
-          <form action="<%=Util.fullPath("EditPro")%>" method="post">
+          <h2 style="font-weight: bold ; font-size: 30px; margin-left: 30px">Edit Product</h2>
+          <form action="<%=Util.fullPath("EditPro")%>" method="post" style="margin-top: 35px">
             <%--@declare id="pwd"--%><label class="control-l col-sm-2" for="pwd">Id </label>
-            <input type="text" id="id" name="id"  value="<%=check.getInt(1)%>">
+            <input type="text" id="id" name="id"  value="<%=check.getInt(1)%>" style="height: 30px; width: 240px;color: whitesmoke; background-color: inherit;font-size: 16px; border-radius: 3px"/>
             <%--@declare id="pwd"--%><label class="control-label col-sm-2" for="pwd">Name </label>
-            <input type="text" id="" name="name"  value="<%=check.getString(2)%>"/>
+            <input type="text" id="" name="name"  value="<%=check.getString(2)%>" style="height: 30px;width: 240px;color: whitesmoke;font-size: 16px; background-color: inherit; border-radius: 3px"/>
             <%--@declare id="pwd"--%><label class="control-label col-sm-2" for="pwd">Id_Ctg</label>
-            <input type="text" id="" name="type" value="<%=check.getInt(3)%>"/>
+            <input type="text" id="" name="type" value="<%=check.getInt(3)%>" style="height: 30px;font-size: 16px;font-size: 16px;color: whitesmoke;width: 240px; background-color: inherit; border-radius: 3px"/>
             <%--@declare id="pwd"--%><label class="control-label col-sm-2" for="pwd">Price </label>
-            <input type="text" id="" name="price"  value="<%=check.getDouble(4)%>"/>
+            <input type="text" id="" name="price"  value="<%=check.getDouble(4)%>" style="height: 30px;font-size: 16px;color: whitesmoke;width: 240px;color: whitesmoke; background-color: inherit; border-radius: 3px"/>
             <%--@declare id="pwd"--%><label class="control-label col-sm-2" for="pwd">Brand</label>
-            <input type="text" id="" name="brand"  value="<%=check.getString(5)%>"/>
+            <input type="text" id="" name="brand"  value="<%=check.getString(5)%>" style="height: 30px;font-size: 16px;color: whitesmoke;width: 240px; background-color: inherit; border-radius: 3px"/>
             <%--@declare id="pwd"--%><label class="control-label col-sm-2" for="pwd">Quantity</label>
-            <input type="text" id="" name="quantity"  value="<%=check.getInt(6)%>"/>
+            <input type="text" id="" name="quantity"  value="<%=check.getInt(6)%>" style="height: 30px;font-size: 16px;color: whitesmoke; background-color: inherit;width: 240px; border-radius: 3px"/>
             <div class="container1">
-              <P style="font-size: 15px; color: #FE980F; font-weight: bold" >Choose Image</P>
+              <P style="font-size: 15px; color: bisque; font-weight: bold" >Choose Image</P>
 
               <input type='file' name="img" id="img" value=" ashion/img/product/<%=request.getAttribute("error")!=null ? request.getAttribute("img") : ""%>">
             </div>
             <div class="container1">
-              <P style="font-size: 15px; color: #FE980F; font-weight: bold" >Image</P>
+              <P style="font-size: 15px; color: bisque; font-weight: bold" >Image</P>
               <img style="width: auto;height: 200px" src=<%=Util.fullPath(check.getString(9))%>>
               </div>
-              <div class="container1">
-                <P style="font-size: 15px; color: #FE980F; font-weight: bold" >Description</P>
-                <textarea name="disc" ><%=check.getString(8)%></textarea>
+              <div class="container1" style="margin-right: 330px">
+                <P style="font-size: 15px; color: bisque; font-weight: bold" >Description</P>
+                <textarea name="disc" style="text-align: center" ><%=check.getString(8)%></textarea>
               </div>
               <script src="<%= Util.fullPath("Admin/ckeditor/ckeditor.js")%>"></script>
               <script>
                   CKEDITOR.replace('disc');
               </script>
-              <button style="float: right" type="submit" class="btn btn-default">Update</button>
+              <button style="margin-top: 10px; padding: 12px 26px; font-size:16px;color: #0c525d; font-family: Sans-Serif; font-weight: bolder; margin-left: 50px"  type="submit" class="btn btn-default">Update</button>
+
           </form>
 
         </div>

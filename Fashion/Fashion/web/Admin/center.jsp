@@ -7,7 +7,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTL</title>
+  <title>AdminH&L</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -31,54 +31,45 @@
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-table"></i>
         <p>
-          Tables
+          Admin's options
           <i class="fas fa-angle-left right"></i>
         </p>
       </a>
       <ul class="nav nav-treeview">
 
-        <li class="nav-item">
+        <li class="nav-item" style="border-top: 1px solid #c2c7d0;
+    border-bottom: 1px solid #c2c7d0">
           <a href="<%=Util.fullPath("ListProduct")%>" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
+            <i class="fa fa-arrow-circle-right"></i>
             <p>Product Management</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="/listReceipt" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Quản lý đơn hàng</p>
+        <li class="nav-item" style="border-bottom: 1px solid #c2c7d0">
+            <a href="<%=Util.fullPath("ListUser")%>" class="nav-link">
+               <i class="fa fa-arrow-circle-right"></i>
+            <p>User Management</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="/TypeSP" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Quản lý thể loại sách</p>
+        <li class="nav-item" style="border-bottom: 1px solid #c2c7d0">
+          <a href="<%=Util.fullPath("ListCategory")%>" class="nav-link">
+            <i class="fa fa-arrow-circle-right"></i>
+            <p>Category Management</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="/Author" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Quản lý tác giả</p>
+        <li class="nav-item" style="border-bottom: 1px solid #c2c7d0">
+          <a href="<%=Util.fullPath("ListCustomer")%>" class="nav-link">
+            <i class="fa fa-arrow-circle-right"></i>
+            <p>Feedback Management</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="/PRODUCTT" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Quản lý sách</p>
+        <li class="nav-item" style="border-bottom: 1px solid #c2c7d0">
+          <a href="<%=Util.fullPath("ListReceipt")%>" class="nav-link">
+            <i class="fa fa-arrow-circle-right"></i>
+            <p>Receipt Management</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="/contact" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Quản lý phản hồi KH</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="/Slidershow" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Quản lý slide</p>
-          </a>
-        </li>
+
+
 
       </ul>
     </li>

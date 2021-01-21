@@ -9,7 +9,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin-Product</title>
+  <title>Admin-Receipt</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -109,7 +109,7 @@
               <%
               } else{
               %>
-              <li class="breadcrumb-item active" href="<%=Util.fullPath("eshopper/login.jsp")%>">Login</li>
+<%--              <li class="breadcrumb-item active" href="<%=Util.fullPath("eshopper/login.jsp")%>">Login</li>--%>
               <%
                 }
               %>
@@ -125,10 +125,10 @@
         <div class="col-12">
           <div class="card" style="background-color: #fdf1d3;">
             <div class="card-header">
-<i style="color: #15486E;
-    font-weight: bolder;">All of the store's products</i>
+              <i style="color: #15486E;
+    font-weight: bolder;">All of the receipts's products</i>
             </div>
-            <a href="<%= Util.fullPath("countpro")%>"> <i  style="color: dodgerblue ; font-size: 20px; float: right; margin: 6px"class="fas fa-plus"></i></a>
+            <%--            <a href="<%= Util.fullPath("countau")%>"> <i  style="color: dodgerblue ; font-size: 20px; float: right; margin: 6px"class="fas fa-plus"></i></a>--%>
 
             <!-- /.card-header -->
             <div class="card-body">
@@ -136,38 +136,28 @@
 
                 <thead>
                 <tr>
-                  <th>Id</th>
                   <th>Name</th>
-                  <th>Ctg</th>
                   <th>Price</th>
                   <th>Brand</th>
-                  <th>Quantity</th>
-                  <th>Description</th>
                   <th>Img</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  <th>Quantity</th>
                 </tr>
                 </thead>
                 <tbody>
                 <%
-                  ResultSet sanpham= (ResultSet) request.getAttribute("sanpham");
-                  while(sanpham.next()){
+                  ResultSet sp= (ResultSet) request.getAttribute("sp");
+                  while(sp.next()){
                 %>
                 <tr>
-                  <td><%= sanpham.getInt(1)%></td>
-                  <td><%= sanpham.getString(2)%></td>
-                  <td><%=sanpham.getString(13)%></td>
-                  <td><%= sanpham.getDouble(4)%></td>
-                  <td><%= sanpham.getString(5)%></td>
-                  <td><%= sanpham.getInt(6)%></td>
 
-                  <td><%= sanpham.getString(8)%></td>
-                  <td><img src="<%=sanpham.getString(9)%>" style="height: 100px;width: auto"> </td>
-                  <td><%=sanpham.getString(11)%></td>
-                  <td>
-                    <a onclick="" href="<%=Util.fullPath("dellpro?id=")+sanpham.getInt(1)%>">  <i  style="color: red ; font-size: 20px; float: right; margin: 6px"class="fas fa-trash"></i></a>
-                    <a href="<%=Util.fullPath("checkId?id="+sanpham.getInt(1))%>"> <i  style="color: orange ; font-size: 20px; float: right; margin: 6px"class="fas fa-pencil-alt"></i></a>
-                  </td>
+                  <td><%= sp.getString(3)%></td>
+                  <td><%=sp.getDouble(8)%></td>
+                  <td><%= sp.getString(9)%></td>
+                  <td><img src="<%=sp.getString(13)%>" style="height: 100px;width: auto"> </td>
+                  <td><%= sp.getString(15)%></td>
+                  <td><%=sp.getInt(4)%></td>
+
 
                 </tr>
                 <% } %>
@@ -183,7 +173,6 @@
 
         </div>
         <!-- /.col -->
-      </div>
       <!-- /.row -->
     </section>
     <!-- /.content -->

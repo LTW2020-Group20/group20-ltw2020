@@ -1,4 +1,3 @@
-
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="vn.com.controller.Util" %>
 <%@ page import="vn.com.controller.User" %>
@@ -9,7 +8,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin-Product</title>
+  <title>Admin-Customer</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,7 +28,7 @@
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
+    <!-
     <ul class="navbar-nav">
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<%=Util.fullPath("Admin")%>" class="nav-link"><i class="fa fa-home"></i></a>
@@ -96,7 +95,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>List product</h1>
+            <h1>List Feedback</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -109,7 +108,7 @@
               <%
               } else{
               %>
-              <li class="breadcrumb-item active" href="<%=Util.fullPath("eshopper/login.jsp")%>">Login</li>
+              <%--              <li class="breadcrumb-item active" href="<%=Util.fullPath("eshopper/login.jsp")%>">Login</li>--%>
               <%
                 }
               %>
@@ -118,17 +117,16 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-12">
           <div class="card" style="background-color: #fdf1d3;">
             <div class="card-header">
-<i style="color: #15486E;
-    font-weight: bolder;">All of the store's products</i>
+              <i style="color: #15486E;
+    font-weight: bolder;">All of the customers</i>
             </div>
-            <a href="<%= Util.fullPath("countpro")%>"> <i  style="color: dodgerblue ; font-size: 20px; float: right; margin: 6px"class="fas fa-plus"></i></a>
+<%--            <a href="<%= Util.fullPath("countau")%>"> <i  style="color: dodgerblue ; font-size: 20px; float: right; margin: 6px"class="fas fa-plus"></i></a>--%>
 
             <!-- /.card-header -->
             <div class="card-body">
@@ -138,36 +136,24 @@
                 <tr>
                   <th>Id</th>
                   <th>Name</th>
-                  <th>Ctg</th>
-                  <th>Price</th>
-                  <th>Brand</th>
-                  <th>Quantity</th>
-                  <th>Description</th>
-                  <th>Img</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  <th>Address</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Message</th>
                 </tr>
                 </thead>
                 <tbody>
                 <%
-                  ResultSet sanpham= (ResultSet) request.getAttribute("sanpham");
-                  while(sanpham.next()){
+                  ResultSet khachhang= (ResultSet) request.getAttribute("khachhang");
+                  while(khachhang.next()){
                 %>
                 <tr>
-                  <td><%= sanpham.getInt(1)%></td>
-                  <td><%= sanpham.getString(2)%></td>
-                  <td><%=sanpham.getString(13)%></td>
-                  <td><%= sanpham.getDouble(4)%></td>
-                  <td><%= sanpham.getString(5)%></td>
-                  <td><%= sanpham.getInt(6)%></td>
-
-                  <td><%= sanpham.getString(8)%></td>
-                  <td><img src="<%=sanpham.getString(9)%>" style="height: 100px;width: auto"> </td>
-                  <td><%=sanpham.getString(11)%></td>
-                  <td>
-                    <a onclick="" href="<%=Util.fullPath("dellpro?id=")+sanpham.getInt(1)%>">  <i  style="color: red ; font-size: 20px; float: right; margin: 6px"class="fas fa-trash"></i></a>
-                    <a href="<%=Util.fullPath("checkId?id="+sanpham.getInt(1))%>"> <i  style="color: orange ; font-size: 20px; float: right; margin: 6px"class="fas fa-pencil-alt"></i></a>
-                  </td>
+                  <td><%=khachhang.getInt(1)%></td>
+                  <td><%= khachhang.getString(2)%></td>
+                  <td><%=khachhang.getString(5)%></td>
+                  <td><%=khachhang.getString(3)%></td>
+                  <td><%=khachhang.getString(4)%></td>
+                  <td><%=khachhang.getString(6)%></td>
 
                 </tr>
                 <% } %>
@@ -190,7 +176,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright 2020 <a href="#">AdminTKL</a>.</strong> All rights
+    <strong>Copyright 2020 <a href="#">Admin</a>.</strong> All rights
     reserved.
   </footer>
 

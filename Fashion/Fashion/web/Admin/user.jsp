@@ -9,7 +9,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin-Product</title>
+  <title>Admin-User</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,7 +29,7 @@
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
+    <!-
     <ul class="navbar-nav">
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<%=Util.fullPath("Admin")%>" class="nav-link"><i class="fa fa-home"></i></a>
@@ -96,7 +96,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>List product</h1>
+            <h1>List users</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -109,7 +109,7 @@
               <%
               } else{
               %>
-              <li class="breadcrumb-item active" href="<%=Util.fullPath("eshopper/login.jsp")%>">Login</li>
+<%--              <li class="breadcrumb-item active" href="<%=Util.fullPath("eshopper/login.jsp")%>">Login</li>--%>
               <%
                 }
               %>
@@ -125,10 +125,10 @@
         <div class="col-12">
           <div class="card" style="background-color: #fdf1d3;">
             <div class="card-header">
-<i style="color: #15486E;
-    font-weight: bolder;">All of the store's products</i>
+              <i style="color: #15486E;
+    font-weight: bolder;">All of the users</i>
             </div>
-            <a href="<%= Util.fullPath("countpro")%>"> <i  style="color: dodgerblue ; font-size: 20px; float: right; margin: 6px"class="fas fa-plus"></i></a>
+            <a href="<%= Util.fullPath("Admin/add_user.jsp")%>"> <i  style="color: dodgerblue ; font-size: 20px; float: right; margin: 6px"class="fas fa-plus"></i></a>
 
             <!-- /.card-header -->
             <div class="card-body">
@@ -136,42 +136,48 @@
 
                 <thead>
                 <tr>
-                  <th>Id</th>
-                  <th>Name</th>
-                  <th>Ctg</th>
-                  <th>Price</th>
-                  <th>Brand</th>
-                  <th>Quantity</th>
-                  <th>Description</th>
-                  <th>Img</th>
-                  <th>Status</th>
+                  <th>User</th>
+                  <th>Password</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Level</th>
+                  <th>Address</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <%
-                  ResultSet sanpham= (ResultSet) request.getAttribute("sanpham");
-                  while(sanpham.next()){
+                  ResultSet user= (ResultSet) request.getAttribute("user");
+                  while(user.next()){
                 %>
                 <tr>
-                  <td><%= sanpham.getInt(1)%></td>
-                  <td><%= sanpham.getString(2)%></td>
-                  <td><%=sanpham.getString(13)%></td>
-                  <td><%= sanpham.getDouble(4)%></td>
-                  <td><%= sanpham.getString(5)%></td>
-                  <td><%= sanpham.getInt(6)%></td>
+                  <td><%= user.getString(2)%></td>
+                  <td><%=user.getString(3)%></td>
+                  <td><%= user.getString(4)%></td>
+                  <td><%= user.getString(5)%></td>
 
-                  <td><%= sanpham.getString(8)%></td>
-                  <td><img src="<%=sanpham.getString(9)%>" style="height: 100px;width: auto"> </td>
-                  <td><%=sanpham.getString(11)%></td>
+                    <%
+                      if (user.getInt(6)==1){
+                    %>
+                  <td>User</td>
+                  <%
+                    }
+                      else{
+                  %>
+                  <td>Admin</td>
+                  <%
+                      }
+                  %>
+                  <td><%= user.getString(7)%></td>
+
                   <td>
-                    <a onclick="" href="<%=Util.fullPath("dellpro?id=")+sanpham.getInt(1)%>">  <i  style="color: red ; font-size: 20px; float: right; margin: 6px"class="fas fa-trash"></i></a>
-                    <a href="<%=Util.fullPath("checkId?id="+sanpham.getInt(1))%>"> <i  style="color: orange ; font-size: 20px; float: right; margin: 6px"class="fas fa-pencil-alt"></i></a>
+                    <a onclick="" href="<%=Util.fullPath("Delete?id="+user.getInt(1))%>">  <i  style="color: red ; font-size: 20px; float: right; margin: 6px"class="fas fa-trash"></i></a>
+                    <a href="<%=Util.fullPath("checkUser?id="+user.getInt(1))%>"> <i  style="color: orange ; font-size: 20px; float: right; margin: 6px"class="fas fa-pencil-alt"></i></a>
                   </td>
 
                 </tr>
                 <% } %>
-                </tbody>
+                </tbody>orao
 
               </table>
             </div>
@@ -190,7 +196,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright 2020 <a href="#">AdminTKL</a>.</strong> All rights
+    <strong>Copyright 2020 <a href="#"></a>.</strong> All rights
     reserved.
   </footer>
 

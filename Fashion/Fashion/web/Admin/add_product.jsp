@@ -40,38 +40,43 @@
   </style>
 
 </head>
-<body>
+<body style="background-image:radial-gradient(lightcoral,darkcyan)">
 <section id="form" style="margin-top: 50px;margin-bottom: 100px"><!--form-->
   <div class="container">
-    <div class="row">
-      <div class="col-sm-4" style="margin-left: 35%">
-        <div class="signup-form" style="margin-bottom: 50px;margin-top: 20px">
-          <h2 style="font-weight: bold ; font-size: 30px">New Product!</h2>
-          <form action="<%=Util.fullPath("AddProduct")%>" method="post">
+    <div class="row" style="    border: 2px solid antiquewhite;
+    border-radius: 2px;
+    margin-left: 5%;
+    padding-left: 34%;
+>
+
+      <div >
+      <div class="signup-form" style="margin-bottom: 50px;margin-top: 20px">
+          <h2 style="font-weight: bold ; font-size: 30px; margin-top: 20px; margin-left: 25px; color: bisque">New Product</h2>
+          <form action="<%=Util.fullPath("AddProduct")%>" method="post" style="margin-top: 35px">
             <%--@declare id="pwd"--%><label class="control-label col-sm-3 m" for="pwd">Id </label>
-            <input style="height: 30px" type="text" id="id" name="id"  value="<%=request.getAttribute("count")%>">
+            <input style="height: 30px; width: 240px;color: whitesmoke; background-color: inherit;font-size: 16px; border-radius: 3px" type="text" id="id" name="id"  value="<%=request.getAttribute("count")%>">
             <%--@declare id="pwd"--%><label class="control-label col-sm-3 m" for="pwd">Name </label>
-            <input style="height: 30px" type="text" id="name" name="name" placeholder="Product name..." value=""/>
+            <input style="height: 30px; width: 240px;color: whitesmoke; background-color: inherit;font-size: 16px; border-radius: 3px" type="text" id="name" name="name" value=""/>
             <%--@declare id="pwd"--%><label class="control-label col-sm-3 m" for="pwd">Id-Ctg</label>
-            <input style="height: 30px" type="text" id="type" name="ctg" placeholder="New type..." value=""/>
+            <input style="height: 30px; width: 240px;color: whitesmoke; background-color: inherit;font-size: 16px; border-radius: 3px" type="text" id="type" name="ctg" value=""/>
             <%--@declare id="pwd"--%><label class="control-label col-sm-3 m" for="pwd">Price </label>
-            <input style="height: 30px" type="text" id="price" name="price" placeholder="New Price..." value=""/>
+            <input style="height: 30px; width: 240px;color: whitesmoke; background-color: inherit;font-size: 16px; border-radius: 3px" type="text" id="price" name="price"  value=""/>
               <label class="control-label col-sm-3 m" for="pwd">Brand </label>
-              <select class="form-control v" type="text" id="" name="brand">
-                <option>global</option>
+              <select class="form-control v" type="text" id="" name="brand" style="width: 240px">
+                <option>global</option>y
                 <option>local</option>
               </select>
 
             <%--@declare id="pwd"--%><label class="control-label col-sm-3 m" for="pwd">Quantity</label>
-            <input style="height: 30px" type="text" id="quan" name="quantity" placeholder="New quantity..." value=""/>
+            <input style="height: 30px;width: 240px"type="text" id="quan" name="quantity" placeholder="New quantity..." value=""/>
               <%--@declare id="pwd"--%><label class="control-label col-sm-3 m" for="pwd">Availability</label>
-              <select class="form-control v" type="text" id="" name="avai">
+              <select class="form-control v" type="text" id="" name="avai" style="width: 240px">
                 <option>In stock</option>
                 <option>Out stock</option>
               </select>
 
               <label for="sel1">Select list:</label>
-              <select class="form-control v" type="text" id="sel1" name="status" >
+              <select class="form-control v" type="text" id="sel1" name="status" style="width: 240px">
                 <option>New</option>
                 <option>Old</option>
                 <option>Sale</option>
@@ -79,12 +84,12 @@
               </select>
 
             <div style="margin-bottom: 10px">
-              <P style="font-size: 15px; color: #FE980F; font-weight: bold" >Choose Image</P>
+              <P style="font-size: 15px; color: bisque; font-weight: bold" >Choose Image</P>
 
               <input type='file' name="img" id="img" value=" eshopper/Img/Products/<%=request.getAttribute("error")!=null ? request.getAttribute("img") : ""%>">
             </div>
-            <div class="">
-              <P style="font-size: 15px; color: #FE980F; font-weight: bold" >Description</P>
+            <div class="" style="margin-right: 330px">
+              <P style="font-size: 15px; color: bisque; font-weight: bold" >Description</P>
               <textarea name="disc"></textarea>
             </div>
             <script src="<%= Util.fullPath("Admin/ckeditor/ckeditor.js")%>"></script>
@@ -95,10 +100,10 @@
 
 
 
-            <button style="float: right" type="submit" class="btn btn-default">Add to list</button>
+            <button style="margin-top: 10px; padding: 12px 26px; background-color: palevioletred; font-size:16px;color: #0c525d; font-family: Sans-Serif; font-weight: bolder; margin-left: 50px" type="submit" class="btn btn-default">Add to list</button>
           </form>
         </div>
-      </div>
+  </div>
     </div>
   </div>
 </section>
