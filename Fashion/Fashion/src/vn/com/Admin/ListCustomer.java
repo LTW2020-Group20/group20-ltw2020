@@ -18,7 +18,7 @@ public class ListCustomer extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        String sql="SELECT * FROM `customer` ";
+        String sql="SELECT * FROM `feedback` ";
         try {
             PreparedStatement pre=(PreparedStatement) dbconnect.getPrepareStatement(sql);
             ResultSet khachhang= pre.executeQuery();
@@ -27,6 +27,7 @@ public class ListCustomer extends HttpServlet {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+
 
 
     }

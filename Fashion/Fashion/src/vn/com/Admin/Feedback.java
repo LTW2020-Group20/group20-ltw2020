@@ -28,11 +28,11 @@ public class Feedback extends HttpServlet {
 
         try {
             PreparedStatement pre=(PreparedStatement) dbconnect.getPrepareStatement(sql);
-            pre.setString(2, name);
-            pre.setString(3, email);
-            pre.setString(4, phone);
-            pre.setString(5, address);
-            pre.setString(6, message);
+            pre.setString(1, name);
+            pre.setString(2, email);
+            pre.setString(3, phone);
+            pre.setString(4, address);
+            pre.setString(5, message);
             ResultSet phanhoi= pre.executeQuery();
             request.setAttribute("phanhoi",phanhoi);
             request.getRequestDispatcher("Admin/feedback.jsp").forward(request,response);

@@ -19,13 +19,15 @@ public class dellctg extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String count = "SELECT id_ctg FROM category";
+        String id = request.getParameter("id");
+        String sql = "delete from category WHERE id_ctg=?";
         try {
-            PreparedStatement pre = (PreparedStatement) dbconnect.getPrepareStatement(count);
-            ResultSet rscount = pre.executeQuery();
-            rscount.last();
-            request.setAttribute("count", rscount.getInt(1)+1);
-            request.getRequestDispatcher("Admin/dellctg.jsp").forward(request,response);
+            PreparedStatement pre = (PreparedStatement) dbconnect.getPrepareStatement(sql);
+            pre.setInt(1, Integer.parseInt(id));
+            int rs = pre.executeUpdate();
+            if (rs == 1) {
+                response.sendRedirect("ListCategory");
+            }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

@@ -24,14 +24,12 @@ public class AddCategory extends HttpServlet {
         String id_ctg=request.getParameter("id");
         String name_ctg=request.getParameter("name");
         String img=request.getParameter("img");
-        img="ashion/img/product/"+img;
         try {
             String sql="INSERT INTO `category`(id_ctg,name_ctg,img) VALUES (?,?,?)";
             PreparedStatement pre = (PreparedStatement) dbconnect.getPrepareStatement(sql);
             pre.setInt(1, Integer.parseInt(id_ctg));
             pre.setString(2,name_ctg);
-
-            pre.setString(9,img);
+            pre.setString(3,img);
             int rs = pre.executeUpdate();
             if (rs == 1) {
                 response.sendRedirect("ListCategory");

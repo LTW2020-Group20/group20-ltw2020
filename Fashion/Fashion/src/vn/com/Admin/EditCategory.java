@@ -25,11 +25,11 @@ public class EditCategory extends HttpServlet {
         String name=request.getParameter("name");
         String img=request.getParameter("img");
         try {
-            String sql="UPDATE category set id_ctg=?,name=?,img=? WHERE id_ctg=? LIMIT 1";
+            String sql="UPDATE category set name_ctg=?,img=? WHERE id_ctg=? LIMIT 1";
             PreparedStatement pre = (PreparedStatement) dbconnect.getPrepareStatement(sql);
-            pre.setString(1,id);
-            pre.setString(2,name);
-            pre.setString(3,img);
+            pre.setString(1,name);
+            pre.setString(2,img);
+            pre.setString(3,id);
             int rs = pre.executeUpdate();
             if (rs == 1) {
                 response.sendRedirect("ListCategory");

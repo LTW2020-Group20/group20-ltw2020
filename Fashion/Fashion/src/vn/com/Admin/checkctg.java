@@ -19,13 +19,14 @@ public class checkctg extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String count = "SELECT id_ctg FROM category";
+        String id= request.getParameter("id");
+        String count = "SELECT * FROM category WHERE id_ctg=?";
         try {
             PreparedStatement pre = (PreparedStatement) dbconnect.getPrepareStatement(count);
-            ResultSet rscount = pre.executeQuery();
-            rscount.last();
-            request.setAttribute("count", rscount.getInt(1)+1);
-            request.getRequestDispatcher("Admin/checkctg.jsp").forward(request,response);
+            pre.setInt(1, Integer.parseInt(id));
+            ResultSet ctg = pre.executeQuery();
+            request.setAttribute("category",ctg);
+            request.getRequestDispatcher("Admin/edit_category.jsp").forward(request,response);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
