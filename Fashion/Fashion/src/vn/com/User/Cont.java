@@ -1,4 +1,4 @@
-package vn.com.User.info;
+package vn.com.User.contact;
 
 import com.mysql.jdbc.PreparedStatement;
 import vn.com.controller.User;
@@ -14,26 +14,26 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet("/Receipt")
-public class Receipt extends HttpServlet {
+@WebServlet("/Cont")
+public class Cont extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession session= request.getSession();
+
         try {
-            HttpSession session=request.getSession();
-            User user=(User) session.getAttribute("Auth");
+            User u =(User) session.getAttribute("Auth");
+            if (u!=null){
             String sql = "SELECT * FROM `category`";
             PreparedStatement p= (PreparedStatement) dbconnect.getPrepareStatement(sql);
             ResultSet cate= p.executeQuery();
             request.setAttribute("cate",cate);
-            String sql1 = "SELECT * FROM `receipt` where name=?";
-            PreparedStatement p1= (PreparedStatement) dbconnect.getPrepareStatement(sql1);
-            p1.setString(1,user.getUname());
-            ResultSet rere= p1.executeQuery();
-            request.setAttribute("rere",rere);
-
-            request.getRequestDispatcher("ashion/ViewReceipt.jsp").forward(request,response);
+            request.getRequestDispatcher("ashion/contact.jsp").forward(request,response);
+        }
+else{
+                response.sendRedirect("Log");
+            }
         }
         catch (ClassNotFoundException |SQLException e) {
             e.printStackTrace();

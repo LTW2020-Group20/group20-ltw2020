@@ -29,14 +29,14 @@ public class Contact extends HttpServlet {
         try {
 
             PreparedStatement save=(PreparedStatement) dbconnect.getPrepareStatement(sqlfb);
-            save.setString(2,name);
-            save.setString(3,email);
-            save.setString(4,phone);
-            save.setString(5,address);
-            save.setString(6,message);
+            save.setString(1,name);
+            save.setString(2,email);
+            save.setString(3,phone);
+            save.setString(4,address);
+            save.setString(5,message);
             int abc= save.executeUpdate();
             if (abc==1){
-                response.sendRedirect("TrangChu");
+                response.sendRedirect("Trangchu");
 
             }else{
                 response.sendRedirect("ashion/contact.jsp");
